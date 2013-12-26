@@ -4,9 +4,9 @@ class Markdown
 		"\n" + ("#" * depth) + title +"\n"
 	end
 
-	def code_block(code)
+	def code_block(code, syntax)
 		snippet = ""
-		snippet << "```diff \n" << code << "```" << "\n"
+		snippet << "```" << syntax << " \n" << code << "```" << "\n"
 	end
 
 	def write_to(file_name, contents)

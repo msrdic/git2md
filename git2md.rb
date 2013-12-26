@@ -16,11 +16,13 @@ git.log.each_with_index do |commit, index|
   	current_markdown_content << (log_length - index).to_s << ". " << commit.message << "\n"
   	markdown_content << markdown.title(current_markdown_content, 2)
 
+  	markdown_content << markdown.code_block(commit.contents, "") << "\n"
+
   	begin
   		diff_parent = commit.diff_parent
-  		markdown_content << markdown.code_block(diff_parent.to_s) << "\n"
+  		markdown_content << markdown.code_block(diff_parent.to_s, "diff") << "\n"
   	rescue
-  		markdown_content << markdown.code_block("no diff");
+  		markdown_content << markdown.code_block("no diff", "");
   	end
 end
 
