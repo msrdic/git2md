@@ -6,7 +6,8 @@ class Markdown
 
 	def code_block(code, syntax)
 		snippet = ""
-		snippet << "```" << syntax << " \n" << code << "```" << "\n"
+		snippet << "```" << syntax << " \n" << code << " \n``` " << "\n"
+		snippet.to_s
 	end
 
 	def write_to(file_name, contents)
